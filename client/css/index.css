@@ -1,0 +1,28 @@
+body{
+    background-color: rgb(248, 241, 241);
+}
+header{
+    background-color: darkcyan;
+}
+h1{
+    font-weight: bold;
+    font-style: italic;
+    text-align: center;
+}
+
+#row{
+    display: flex;
+    padding-top: 5rem;
+}
+
+#column{
+    flex: 25%;
+    padding: 5px;
+    display: inline-block;
+    align-items: center;
+}
+
+#column img{
+    width: 250px;
+    height: 250px;
+}
