@@ -1,5 +1,6 @@
 To run the project, open the terminal and type:
 
+npm install
 cd server
 node app.js
 
