@@ -19,7 +19,6 @@ function appendData() {
 
 
 function nextPage() {
-
   // Can replace limit with listOfProductObjects.length to get all options
   if (index == limit) {
       index = 0;
@@ -32,6 +31,30 @@ function nextPage() {
       row.firstChild.remove();
     }
   }
+  displayItems(counter);
+}
+
+function previousPage() {
+  // Can replace limit with listOfProductObjects.length to get all options
+  if (index == 0) {
+  }else {
+    if (index == 4){
+      index = limit - 4;
+    }else{
+      index = index - 8;
+    }
+    
+    const counter = index;
+    console.log(counter);
+
+    while (row.firstChild) {
+      row.firstChild.remove();
+    }
+    displayItems(counter);
+  }
+}
+
+function displayItems(counter){
   for (let i = counter; i < counter + 4; i++) {
     if (i < limit) {
       var column = document.createElement("div");
@@ -54,44 +77,6 @@ function nextPage() {
   }
 }
 
-function previousPage() {
-  if (index == 0) {
-  }else {
-    if (index == 4){
-      index = limit - 4;
-    }else{
-      index = index - 8;
-    }
-    
-    const counter = index;
-    console.log(counter);
-
-    while (row.firstChild) {
-      row.firstChild.remove();
-    }
-    for (let i = counter; i < counter + 4; i++) {
-      if (i < limit) {
-        var column = document.createElement("div");
-        column.setAttribute("id", "column");
-        var img = document.createElement("img");
-        var h2 = document.createElement("h2");
-        var h3 = document.createElement("h3");
-        img.src = listOfProductObjects[i].image.url;
-        h2.textContent = listOfProductObjects[i].name;
-        h3.textContent =
-          listOfProductObjects[i].price.regularPrice.amount.value +
-          " " +
-          listOfProductObjects[i].price.regularPrice.amount.currency;
-        column.appendChild(img);
-        column.appendChild(h2);
-        column.appendChild(h3);
-        row.appendChild(column);
-        index += 1;
-      }
-    }
-    
-  }
-}
 
 // Gets data with user input
 async function getDataWithUserInput() {
