@@ -16,20 +16,20 @@
 
 <main>
     <div id="searchDiv">
+        <label for="userInput"></label>
         <input id="userInput" type="text" placeholder="Search for products" name="input">
-        <input value="Search" type="submit" onclick="getDataWithUserInput()">
+        <label for="inputButton"></label>
+        <input id="inputButton" value="Search" type="submit" onclick="getDataWithUserInput()">
     </div>
     
-
-
     <div id="row"></div>
     <div id="pageButtons">
-        <input type="submit" value="< Previous>" onclick="previousPage()"></button>
-        <input type="submit" value="Next >" onclick="nextPage()"></button>
+        <label for="previous"></label>
+        <input id="previous" type="submit" value="< Previous" onclick="previousPage()"></button>
+        <label for="next"></label>
+        <input id="next" type="submit" value="Next >" onclick="nextPage()"></button>
     </div>
 </main>
-
-
 
 <script src="main.js"></script>
 </body>

@@ -17,14 +17,12 @@ function appendData() {
   });
 }
 
-
 function nextPage() {
   // Can replace limit with listOfProductObjects.length to get all options
   if (index == limit) {
-      index = 0;
-    }
+    index = 0;
+  }
   const counter = index;
-  console.log(counter);
 
   if (counter < limit) {
     while (row.firstChild) {
@@ -37,15 +35,13 @@ function nextPage() {
 function previousPage() {
   // Can replace limit with listOfProductObjects.length to get all options
   if (index == 0) {
-  }else {
-    if (index == 4){
+  } else {
+    if (index == 4) {
       index = limit - 4;
-    }else{
+    } else {
       index = index - 8;
     }
-    
     const counter = index;
-    console.log(counter);
 
     while (row.firstChild) {
       row.firstChild.remove();
@@ -54,7 +50,7 @@ function previousPage() {
   }
 }
 
-function displayItems(counter){
+function displayItems(counter) {
   for (let i = counter; i < counter + 4; i++) {
     if (i < limit) {
       var column = document.createElement("div");
@@ -76,7 +72,6 @@ function displayItems(counter){
     }
   }
 }
-
 
 // Gets data with user input
 async function getDataWithUserInput() {
