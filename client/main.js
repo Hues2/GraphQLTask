@@ -1,9 +1,7 @@
 var listOfProductObjects = [];
-var pageNumber = 1;
 var row = document.getElementById("row");
-var rows = [];
 var index = 0;
-var testRow = document.createElement("div");
+const limit = 12;
 
 async function getData() {
   listOfProductObjects = await fetch("http://localhost:3000/index")
@@ -15,27 +13,27 @@ async function getData() {
 
 function appendData() {
   getData().then(() => {
-    //displayFirstPage();
     nextPage();
   });
 }
 
 
-
 function nextPage() {
-  if (index == listOfProductObjects.length) {
-    index = 0;
-  }
+
+  // Can replace limit with listOfProductObjects.length to get all options
+  if (index == limit) {
+      index = 0;
+    }
   const counter = index;
   console.log(counter);
 
-  if (counter < listOfProductObjects.length) {
+  if (counter < limit) {
     while (row.firstChild) {
       row.firstChild.remove();
     }
   }
   for (let i = counter; i < counter + 4; i++) {
-    if (i < listOfProductObjects.length) {
+    if (i < limit) {
       var column = document.createElement("div");
       column.setAttribute("id", "column");
       var img = document.createElement("img");
@@ -60,7 +58,7 @@ function previousPage() {
   if (index == 0) {
   }else {
     if (index == 4){
-      index = listOfProductObjects.length - 4;
+      index = limit - 4;
     }else{
       index = index - 8;
     }
@@ -72,7 +70,7 @@ function previousPage() {
       row.firstChild.remove();
     }
     for (let i = counter; i < counter + 4; i++) {
-      if (i < listOfProductObjects.length) {
+      if (i < limit) {
         var column = document.createElement("div");
         column.setAttribute("id", "column");
         var img = document.createElement("img");
@@ -123,7 +121,6 @@ async function getDataWithUserInput() {
           document.getElementById("userInput").style.color = "black";
           console.log(data.items);
           listOfProductObjects = data.items;
-          console.log("Display First Page");
           index = 0;
           nextPage();
         }
