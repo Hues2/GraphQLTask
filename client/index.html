@@ -15,8 +15,11 @@
 </header>
 
 <main>
-    <input type="text" placeholder="Search for products" name="product">
-    <input value="Search" type="submit">
+    <div id="searchDiv">
+        <input id="userInput" type="text" placeholder="Search for products" name="input">
+        <input value="Search" type="submit" onclick="getDataWithUserInput()">
+    </div>
+    
 
 
     <div id="row"></div>

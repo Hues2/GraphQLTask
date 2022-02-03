@@ -1,9 +1,11 @@
 var listOfProductObjects = [];
 var pageNumber = 1;
-const row = document.getElementById("row");
+var numberOfPages = 3;
+var row = document.getElementById("row");
+var rows = [];
 
 async function getData() {
-  listOfProductObjects = await fetch("http://localhost:3000")
+  listOfProductObjects = await fetch("http://localhost:3000/index")
     .then((res) => res.json())
     .then((data) => {
       return data.items;
@@ -99,4 +101,38 @@ function previousButton() {
   } else {
     displaySecondPage();
   }
+}
+
+
+
+
+
+// Gets data with user input
+async function getDataWithUserInput(){
+    const userInputField = document.getElementById("userInput");
+    const userInput = {
+      input : userInputField.value,
+    }
+  
+    await fetch("http://localhost:3000/search", {
+        method: 'POST',
+        headers: {
+            'content-type': 'application/json', 
+        },
+        body: JSON.stringify(userInput),
+    })
+    .then(res => res.json())
+    .then(data => {
+      if (data.items.length == 0){
+        console.log("Product not found");
+        document.getElementById("userInput").style.color = "red";
+      }else{
+        console.log("Products found");
+        document.getElementById("userInput").style.color = "black";
+        console.log(data.items);
+        listOfProductObjects = data.items
+        console.log("Display First Page");
+        displayFirstPage();
+      }
+    });
 }

@@ -6,12 +6,12 @@ header{
     background-color: #1d59d1;
     height: 2.5rem;
 }
-form{
+#searchDiv {
     margin: 3rem;
     text-align: center;
     padding: 1rem;
 }
-form input[type=submit]{
+#searchDiv input[type=submit]{
     background-color: #1d59d1;
     border: none;
     color: white;
@@ -23,10 +23,10 @@ form input[type=submit]{
     margin: 4px 2px;
     cursor: pointer;
 }
-form input[type=submit]:hover{
+#searchDiv  input[type=submit]:hover{
     background-color: #0e131d;
 }
-form input[type=text]{
+#searchDiv  input[type=text]{
     padding: 10px 28px;
     font-size: 16px;
     margin: 4px 2px;
